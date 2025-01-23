@@ -1,16 +1,19 @@
-import Link from 'next/link'
-import ProductCard from './components/ProductCard'
-import { getServerSession } from 'next-auth'
-import { authOptions } from './api/auth/[...nextauth]/route'
+import Image from 'next/image'
 
 export default async function Home() {
-  const session = await getServerSession(authOptions)
-  
+
   return (
-    <main>
-      <h1>Hello <span>{session ? session.user?.name : 'world'}</span></h1>
-      <Link href='/users'>Users</Link>
-      <ProductCard />
+    <main className='relative h-screen'>
+      <div>Hello world</div>
+      {/* <Image
+        src="https://bit.ly/react-cover"
+        alt='mountain'
+        fill
+        className='object-cover'
+        sizes='(min-width: 480px) 100vw, (min-width: 768px) 100vw, 33vw'
+        quality={100}
+        priority
+      /> */}
     </main>
   )
 }
