@@ -1,19 +1,29 @@
-import Image from 'next/image'
+'use client'
 
-export default async function Home() {
+import React from 'react';
+import _ from 'lodash'
+
+export default function Home() {
 
   return (
     <main className='relative h-screen'>
-      <div>Hello world</div>
-      {/* <Image
-        src="https://bit.ly/react-cover"
-        alt='mountain'
-        fill
-        className='object-cover'
-        sizes='(min-width: 480px) 100vw, (min-width: 768px) 100vw, 33vw'
-        quality={100}
-        priority
-      /> */}
+      <h1>Hello world</h1>
+      <button onClick={async() => {
+        const _ = (await import('lodash')).default
+        const users = [
+          { name: 'c'},
+          { name: 'a'},
+          { name: 'b'}
+        ]
+
+        const sorted = _.sortBy(users, 'name')
+        console.log(sorted)
+      }}>Show</button>
     </main>
   )
 }
+
+// export const metadata = {
+//   title: 'Home',
+//   description: 'Home page',
+// }
